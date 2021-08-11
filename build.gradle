@@ -1,0 +1,30 @@
+plugins {
+    id 'io.qameta.allure' version '2.5'
+    id 'java'
+}
+allure {
+    autoconfigure = true
+    version = '2.14.0'  // Latest Allure Version
+
+    useJUnit5 {
+        version = '2.14.0' // Latest Allure Version
+    }
+
+}
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    jcenter()
+    mavenCentral()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    implementation group: 'org.apache.httpcomponents', name: 'httpclient', version: '4.5.13'
+}
+
+test {
+    useJUnitPlatform()
+}
